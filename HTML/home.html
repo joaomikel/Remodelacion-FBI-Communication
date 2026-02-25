@@ -16,14 +16,22 @@
             <a href="#" class="logo-link">
                 <img src="../MULTIMEDIA/logo.png" alt="FBI Communication Logo" class="brand-logo">
             </a>
-            <ul class="nav-links">
+
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#agency">Agenzia</a></li>
-                <li><a href="#services">Servizi</a></li>
+                <li><a href="#servizi">Servizi</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contatti</a></li>
+                <li><a href="#contatti">Contatti</a></li>
             </ul>
-            <a href="#contact" class="btn-primary">Contattaci</a>
+
+            <a href="#contatti" class="btn-primary desktop-only">Contattaci</a>
+
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
 
@@ -40,14 +48,14 @@
             </div>
         </div>
         <div class="hero-image-wrapper">
-            <div class="image-placeholder">Immagine Hero</div>
+            <div class="image-placeholder" style="background: #f0f2f5; height: 400px; border-radius: 20px;"></div>
         </div>
     </section>
 
-    <section id="agency" class="agency-section bg-light">
+    <section id="agency" class="agency-section bg-contrast">
         <div class="container grid-2-cols">
             <div class="agency-image">
-                <div class="image-placeholder">Immagine Agenzia</div>
+                <div class="image-placeholder" style="background: #e0e0e0; height: 500px; border-radius: 20px;"></div>
             </div>
             <div class="agency-text">
                 <h2 class="section-title">DIGITALIZZA LA<br>TUA ATTIVITÁ</h2>
@@ -58,19 +66,17 @@
                 <p>Tutte queste azioni sono mirate a rendere la propria immagine differente e più penetrante nella mente
                     degli utenti.</p>
                 <p class="highlight-text">La tua agenzia di marketing in Calabria</p>
-                <a href="#services" class="btn-primary">Scopri di più</a>
+                <a href="#servizi" class="btn-primary">Scopri di più</a>
             </div>
         </div>
     </section>
 
-    <section class="jumanji-section text-center">
+    <section class="jumanji-section text-center bg-contrast">
         <div class="container">
-            <h2 class="jumanji-title">“JUMANJI”</h2>
-            <p class="jumanji-text">Sarai catapultato nel mondo digitale dove avrai tutti gli strumenti per rendere la
-                tua attività leader nel mercato.<br>Ti forniremo tutti i servizi di cui la tua azienda ha bisogno.</p>
-            <p class="jumanji-subtext">Per catapultarti nella nostra agenzia di marketing in Calabria<br>Clicca sul
-                pulsante.</p>
-            <a href="#services" class="btn-outline">I NOSTRI SERVIZI</a>
+            <h2 class="jumanji-title">"SARAI CATAPULTATO IN UN MONDO DOVE IL SUCCESSO È L'UNICA VIA D'USCITA."</h2>
+            <p class="jumanji-text">Ti forniremo tutti gli strumenti per rendere la tua attività leader nel
+                mercato.<br>Semplice, no?</p>
+            <a href="#servizi" class="btn-primary">ENTRA NEL GIOCO</a>
         </div>
     </section>
 
@@ -123,115 +129,112 @@
         </div>
     </section>
 
-    <section class="testimonials-section">
+    <section id="news" class="news-section bg-contrast">
         <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title">Dicono di noi</h2>
-                <p class="section-subtitle">Se hai ancora dubbi, leggi le recensioni dei nostri clienti!</p>
+            <div class="news-header">
+                <div class="news-title-block">
+                    <h2>Ultime News</h2>
+                    <p>Scopri i nostri articoli e le ultime novità</p>
+                </div>
+                <a href="#" class="vedi-tutti">Vedi tutti <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
-            <div class="slider-container">
-                <button class="slider-btn prev-btn" id="prev-btn" aria-label="Previous review"><i
-                        class="fa-solid fa-chevron-left"></i></button>
+            <div class="news-grid-3">
+                <div class="news-card-img">
+                    <div class="img-container">
+                        <img src="https://via.placeholder.com/400x250/e0e0e0/999999?text=News+Image" alt="News">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">MARKETING DIGITAL</span>
+                        <h3>L'algoritmo di Instagram nel 2024</h3>
+                        <a href="#" class="read-more-btn">LEGGI DI PIÙ <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card-img">
+                    <div class="img-container">
+                        <img src="https://via.placeholder.com/400x250/e0e0e0/999999?text=News+Image" alt="News">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">STRATEGIA</span>
+                        <h3>Perché la tua azienda ha bisogno di un piano</h3>
+                        <a href="#" class="read-more-btn">LEGGI DI PIÙ <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card-img">
+                    <div class="img-container">
+                        <img src="https://via.placeholder.com/400x250/e0e0e0/999999?text=News+Image" alt="News">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">SOCIAL MEDIA</span>
+                        <h3>Il futuro dei social: tendenze da seguire</h3>
+                        <a href="#" class="read-more-btn">LEGGI DI PIÙ <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="slider-track-wrapper">
-                    <div class="slider-track" id="testimonial-track">
-                        <div class="testimonial-card">
-                            <i class="fa-solid fa-quote-right quote-icon"></i>
-                            <p class="review-text">"Mi sono affidato ad FBI Communication per la gestione dei Social del
-                                mio locale, sono molto soddisfatto poichè i miei canali sono sempre attivi e con
-                                contenuti nuovi ed originali. Consigliatissimi!!!"</p>
-                            <div class="reviewer-info">
-                                <h4 class="reviewer-name">Tommaso</h4>
-                                <span class="reviewer-role">Ristoratore</span>
-                            </div>
+    <section class="testimonials-section">
+        <div class="container text-center">
+            <div class="stars-rating">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                    class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 50px;">Dicono di noi</h2>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-box">
+                    <i class="fa-solid fa-quote-left main-quote"></i>
+                    <p class="review-body">"L'approccio innovativo di FBI Communication ha stravolto il nostro modo di
+                        fare marketing. Risultati tangibili in tempi record. Un partner strategico fondamentale."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-photo" style="background-image: url('https://via.placeholder.com/60');">
                         </div>
-                        <div class="testimonial-card">
-                            <i class="fa-solid fa-quote-right quote-icon"></i>
-                            <p class="review-text">"Ormai da tempo il mio locale è seguito da questa agenzia per quanto
-                                riguarda video e foto. Marco, uno dei loro videomaker, è davvero bravissimo.
-                                Consigliatissima come agenzia!"</p>
-                            <div class="reviewer-info">
-                                <h4 class="reviewer-name">Danilo</h4>
-                                <span class="reviewer-role">Ristoratore</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <i class="fa-solid fa-quote-right quote-icon"></i>
-                            <p class="review-text">"Sono molto contento del risultato ottenuto per il mio logo identity.
-                                Il grafico è riuscito a realizzare da zero un'idea incompleta. Sono felice,
-                                consigliati!"</p>
-                            <div class="reviewer-info">
-                                <h4 class="reviewer-name">Gianni</h4>
-                                <span class="reviewer-role">Imprenditore digitale</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-card">
-                            <i class="fa-solid fa-quote-right quote-icon"></i>
-                            <p class="review-text">"Ci siamo affidati a questa agenzia di comunicazione e marketing
-                                vista l'esperienza pubblicitaria positiva con la pagina instagram Foodbackitaly. Hanno
-                                iniziato da poco a curare l'intero piano marketing dell'attività e possiamo affermare
-                                che già in breve tempo ci sono stati dei riscontri positivi. Consigliati!"</p>
-                            <div class="reviewer-info">
-                                <h4 class="reviewer-name">Fulvio</h4>
-                                <span class="reviewer-role">Ristoratore</span>
-                            </div>
+                        <div class="reviewer-data">
+                            <h4>MARCO ROSSI</h4>
+                            <span>CEO, TechVision</span>
                         </div>
                     </div>
                 </div>
-
-                <button class="slider-btn next-btn" id="next-btn" aria-label="Next review"><i
-                        class="fa-solid fa-chevron-right"></i></button>
-            </div>
-            <div class="slider-dots" id="slider-dots"></div>
-        </div>
-    </section>
-
-    <section class="clients-section bg-light">
-        <div class="container text-center">
-            <h2 class="section-title">Alcuni dei nostri clienti</h2>
-            <div class="divider center"></div>
-        </div>
-
-        <div class="marquee-wrapper">
-            <div class="marquee-track">
-                <div class="client-logo">Cliente 1</div>
-                <div class="client-logo">Cliente 2</div>
-                <div class="client-logo">Cliente 3</div>
-                <div class="client-logo">Cliente 4</div>
-                <div class="client-logo">Cliente 5</div>
-                <div class="client-logo">Cliente 6</div>
-                <div class="client-logo">Cliente 1</div>
-                <div class="client-logo">Cliente 2</div>
-                <div class="client-logo">Cliente 3</div>
-                <div class="client-logo">Cliente 4</div>
-                <div class="client-logo">Cliente 5</div>
-                <div class="client-logo">Cliente 6</div>
+                <div class="testimonial-box">
+                    <i class="fa-solid fa-quote-left main-quote"></i>
+                    <p class="review-body">"Strategia lead generation impeccabile. Il ROI delle nostre campagne è
+                        raddoppiato in soli tre mesi di collaborazione. Altamente consigliati."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-photo" style="background-image: url('https://via.placeholder.com/60');">
+                        </div>
+                        <div class="reviewer-data">
+                            <h4>GIULIA MORETTI</h4>
+                            <span>Founder, StyleBrand</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <i class="fa-solid fa-quote-left main-quote"></i>
+                    <p class="review-body">"Un team di professionisti seri che sa davvero cosa significa scalare un
+                        business nel mercato digitale odierno. Supporto costante e proattivo."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-photo" style="background-image: url('https://via.placeholder.com/60');">
+                        </div>
+                        <div class="reviewer-data">
+                            <h4>LUCA VERDI</h4>
+                            <span>Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="news-section container">
-        <div class="section-heading text-center">
-            <h2>Ultime News</h2>
-            <div class="red-line center"></div>
-        </div>
-        <div class="news-grid">
-            <div class="news-card">
-                <h3>I social media in Calabria: vantaggi e svantaggi</h3>
-                <a href="#" class="read-more">Leggi articolo &rarr;</a>
-            </div>
-            <div class="news-card">
-                <h3>L'importanza dei Social Media per la tua attività</h3>
-                <a href="#" class="read-more">Leggi articolo &rarr;</a>
-            </div>
-            <div class="news-card">
-                <h3>Come l'influencer marketing aiuta la tua attività</h3>
-                <a href="#" class="read-more">Leggi articolo &rarr;</a>
-            </div>
-            <div class="news-card">
-                <h3>Agenzia di comunicazione: perché affidarsi</h3>
-                <a href="#" class="read-more">Leggi articolo &rarr;</a>
+    <section class="clients-section bg-contrast text-center">
+        <div class="container">
+            <h3 class="clients-title-simple">ALCUNI DEI NOSTRI CLIENTI</h3>
+            <div class="clients-list">
+                <span>GLOBAL CORP</span>
+                <span>TECH FLOW</span>
+                <span>NEXUS MEDIA</span>
+                <span>ELITE GROUP</span>
+                <span>PRIME SOLUTIONS</span>
             </div>
         </div>
     </section>
@@ -275,7 +278,7 @@
                 <ul class="links-list">
                     <li><a href="#">Chi Siamo</a></li>
                     <li><a href="#servizi">I Nostri Servizi</a></li>
-                    <li><a href="#">Ultime News</a></li>
+                    <li><a href="#news">Ultime News</a></li>
                     <li><a href="#">Lavora con noi</a></li>
                 </ul>
             </div>
