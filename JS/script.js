@@ -58,3 +58,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Recalculate position on window resize to ensure responsiveness
   window.addEventListener("resize", updateSliderPosition);
 });
+
+// --- MOBILE MENU (HAMBURGER LOGIC) ---
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (hamburger && navLinks) {
+        // Abrir/Cerrar al hacer clic en la hamburguesa
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+
+        // Cerrar el menú automáticamente al hacer clic en cualquier enlace
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+            });
+        });
+    }

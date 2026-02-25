@@ -1,21 +1,14 @@
 /* =========================================
-   1. VARIABLES & RESET
+   VARIABLES & RESET
 ========================================= */
 :root {
-  /* Brand Colors */
   --primary-red: #e32020;
   --primary-red-hover: #c01a1a;
   --dark-bg: #151515;
-
-  /* Typography Colors */
   --text-dark: #1a1a1a;
   --text-light: #666666;
-
-  /* Backgrounds */
-  --bg-light: #f9fafb;
+  --bg-contrast: #f4f6f8; /* Gris claro para el ritmo visual */
   --white: #ffffff;
-
-  /* Utilities */
   --font-main: "Poppins", sans-serif;
   --transition: 0.3s ease-in-out;
   --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -33,7 +26,7 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   background: var(--white);
-  overflow-x: hidden; /* Prevents horizontal scroll from marquee */
+  overflow-x: hidden;
 }
 
 a {
@@ -47,7 +40,7 @@ ul {
 }
 
 /* =========================================
-   2. UTILITY CLASSES
+   UTILITY CLASSES
 ========================================= */
 .container {
   width: 90%;
@@ -61,60 +54,39 @@ ul {
 .text-red {
   color: var(--primary-red);
 }
-.bg-light {
-  background-color: var(--bg-light);
+.bg-contrast {
+  background-color: var(--bg-contrast);
   padding: 80px 0;
-}
-
-.divider {
-  width: 60px;
-  height: 4px;
-  background: var(--primary-red);
-  margin: 15px 0 30px;
-  border-radius: 2px;
-}
-.divider.center {
-  margin: 15px auto 30px;
 }
 
 /* Buttons */
 .btn-primary,
 .btn-outline {
   display: inline-block;
-  padding: 12px 28px;
-  font-weight: 600;
+  padding: 14px 32px;
+  font-weight: 700;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.9rem;
   transition: var(--transition);
   cursor: pointer;
+  border: none;
 }
 
 .btn-primary {
   background: var(--primary-red);
   color: var(--white);
-  border: 2px solid var(--primary-red);
+  box-shadow: 0 4px 15px rgba(227, 32, 32, 0.3);
 }
 
 .btn-primary:hover {
-  background: transparent;
-  color: var(--primary-red);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--primary-red);
-  border: 2px solid var(--primary-red);
-}
-
-.btn-outline:hover {
-  background: var(--primary-red);
-  color: var(--white);
+  background: var(--primary-red-hover);
+  transform: translateY(-2px);
 }
 
 /* =========================================
-   3. HEADER & NAVIGATION
+   HEADER & NAVIGATION
 ========================================= */
 .header {
   position: fixed;
@@ -122,8 +94,8 @@ ul {
   width: 100%;
   background: var(--white);
   z-index: 1000;
-  transition: var(--transition);
   padding: 20px 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-wrapper {
@@ -133,7 +105,7 @@ ul {
 }
 
 .brand-logo {
-  height: 40px; /* Adjust based on your actual logo */
+  height: 40px;
   width: auto;
 }
 
@@ -151,17 +123,33 @@ ul {
   color: var(--primary-red);
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1005;
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-dark);
+  transition: 0.4s ease;
+  border-radius: 3px;
+}
+
 /* =========================================
-   4. HERO SECTION
+   HERO SECTION
 ========================================= */
 .hero {
-  padding-top: 150px;
+  padding-top: 160px;
   padding-bottom: 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
-  min-height: 90vh;
 }
 
 .hero-content .tag {
@@ -170,443 +158,344 @@ ul {
   color: var(--text-light);
   letter-spacing: 2px;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 900;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .hero-description {
   color: var(--text-light);
   font-size: 1.1rem;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
   max-width: 90%;
 }
 
-.hero-image-wrapper .image-placeholder {
-  background: var(--bg-light);
-  height: 400px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ccc;
-  border: 2px dashed #ddd;
+/* =========================================
+   AGENCY SECTION
+========================================= */
+.agency-section {
+  padding: 100px 0;
 }
 
-/* =========================================
-   5. AGENCY SECTION (Digitalizza)
-========================================= */
 .grid-2-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 80px;
   align-items: center;
-}
-
-.agency-image .image-placeholder {
-  background: #e0e0e0;
-  height: 500px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 900;
   line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--primary-red);
+  margin-bottom: 30px;
 }
 
 .agency-text p {
   color: var(--text-light);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
 }
 
 .agency-text .highlight-text {
   font-weight: 700;
   color: var(--text-dark);
-  margin-bottom: 30px;
+  margin: 30px 0;
   font-size: 1.2rem;
 }
 
 /* =========================================
-   6. JUMANJI SECTION
+   JUMANJI SECTION (NUEVO ESTILO)
 ========================================= */
 .jumanji-section {
-  padding: 100px 0;
+  padding: 120px 0;
 }
 
 .jumanji-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  line-height: 1.3;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .jumanji-text {
   max-width: 700px;
-  margin: 0 auto 20px;
+  margin: 0 auto 40px;
   font-size: 1.2rem;
   color: var(--text-light);
 }
 
-.jumanji-subtext {
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-
 /* =========================================
-   SERVIZI (Estilo Limpio y Minimalista)
+   SERVICES SECTION
 ========================================= */
 .services {
-  padding: 80px 0;
+  padding: 100px 0;
+}
+
+.section-heading {
+  margin-bottom: 60px;
 }
 .section-heading h2 {
-  font-size: 36px;
+  font-size: 3rem;
   font-weight: 900;
-  margin-bottom: 10px;
-  color: var(--text-dark);
+  margin-bottom: 15px;
 }
 .section-heading p {
   color: var(--text-light);
-  margin-bottom: 50px;
-  font-size: 16px;
+  font-size: 1.1rem;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  gap: 30px;
 }
 
 .service-card {
   background: var(--white);
-  border: 1px solid #f0f0f0; /* Borde muy sutil */
-  padding: 40px 20px;
-  border-radius: 12px; /* Esquinas ligeramente más redondeadas */
+  border: 1px solid #f0f0f0;
+  padding: 40px 30px;
+  border-radius: 12px;
   text-align: center;
-  transition: 0.3s;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.015); /* Sombra casi invisible */
+  transition: var(--transition);
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.06);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
   border-color: transparent;
 }
 
-/* Iconos sin el círculo de fondo, centrados y limpios */
 .s-icon {
-  font-size: 28px;
-  margin-bottom: 15px;
-  display: inline-block;
-  line-height: 1;
+  font-size: 3rem;
+  margin-bottom: 25px;
 }
 
 .service-card h3 {
-  font-size: 18px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  color: var(--text-dark);
-}
-
-.service-card p {
-  font-size: 14px;
-  color: var(--text-light);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* =========================================
-   ULTIME NEWS (Tarjetas sin imagen)
-========================================= */
-.news-section {
-  padding: 80px 0;
-}
-.news-section .section-heading h2 {
-  font-size: 36px;
-  font-weight: 900;
+  font-size: 1.3rem;
+  font-weight: 700;
   margin-bottom: 15px;
 }
 
-/* La línea roja centrada debajo del título de noticias */
-.red-line.center {
-  margin: 0 auto 50px auto;
-  width: 40px;
-  height: 3px;
-  background: var(--primary-red);
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.news-card {
-  background: #fafafa; /* Gris extra claro */
-  padding: 35px 25px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Empuja el enlace hacia abajo */
-  min-height: 220px;
-  transition: 0.3s;
-  border: 1px solid transparent;
-}
-
-.news-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  background: var(--white);
-  border: 1px solid #f0f0f0;
-}
-
-.news-card h3 {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--text-dark);
-  line-height: 1.4;
-  margin-bottom: 20px;
-}
-
-.read-more {
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--primary-red);
-  transition: 0.3s;
-}
-
-.read-more:hover {
-  color: #c01818;
-  text-decoration: underline;
-}
-
-/* =========================================
-   8. TESTIMONIALS (Slider)
-========================================= */
-.testimonials-section {
-  padding: 80px 0;
-}
-
-.slider-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  max-width: 900px;
-  margin: 40px auto 0;
-}
-
-.slider-track-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 20px 0;
-}
-
-.slider-track {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: transform;
-}
-
-.testimonial-card {
-  min-width: 100%;
-  padding: 40px;
-  background: var(--white);
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #f0f0f0;
-}
-
-.quote-icon {
-  font-size: 2rem;
-  color: var(--primary-red);
-  opacity: 0.2;
-  margin-bottom: 20px;
-}
-
-.review-text {
-  font-size: 1.1rem;
-  font-style: italic;
+.service-card p {
   color: var(--text-light);
-  margin-bottom: 30px;
-}
-
-.reviewer-name {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
-.reviewer-role {
-  font-size: 0.85rem;
-  color: var(--primary-red);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-
-/* Slider Controls */
-.slider-btn {
-  background: var(--white);
-  border: none;
-  color: var(--text-dark);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: absolute;
-  z-index: 10;
-  transition: var(--transition);
-  box-shadow: var(--shadow-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slider-btn:hover {
-  background: var(--primary-red);
-  color: var(--white);
-}
-
-.prev-btn {
-  left: -20px;
-}
-.next-btn {
-  right: -20px;
 }
 
 /* =========================================
-   9. CLIENTS MARQUEE (Infinite CSS)
-========================================= */
-.marquee-wrapper {
-  width: 100vw;
-  max-width: 100%;
-  overflow: hidden;
-  position: relative;
-  margin-top: 40px;
-  /* Gradient mask for smooth edge fading */
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: scroll-marquee 30s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-}
-
-.client-logo {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-light);
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  /* Filter effect for actual images when you add them */
-  filter: grayscale(100%) opacity(0.6);
-  transition: var(--transition);
-  cursor: pointer;
-}
-
-.client-logo:hover {
-  filter: grayscale(0%) opacity(1);
-  color: var(--primary-red);
-}
-
-@keyframes scroll-marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* =========================================
-   10. NEWS SECTION
+   ULTIME NEWS (NUEVO ESTILO CON IMAGEN)
 ========================================= */
 .news-section {
   padding: 100px 0;
 }
 
-.news-grid {
+.news-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.news-title-block h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+.news-title-block p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.vedi-tutti {
+  font-weight: 700;
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.news-grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-.news-card {
-  background: var(--bg-light);
-  padding: 30px;
+.news-card-img {
+  background: var(--white);
   border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 200px;
 }
 
-.news-card:hover {
-  background: var(--primary-red);
-  color: var(--white);
+.news-card-img:hover {
   transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
 }
 
-.news-title {
-  font-size: 1.2rem;
+.img-container {
+  height: 220px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.news-card-img:hover .img-container img {
+  transform: scale(1.05);
+}
+
+.news-content {
+  padding: 25px;
+}
+
+.news-category {
+  display: block;
+  font-size: 0.85rem;
   font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 20px;
-  color: inherit; /* Inherits white on hover */
+  color: var(--primary-red);
+  margin-bottom: 10px;
 }
 
-.read-more {
-  font-weight: 600;
+.news-content h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+.read-more-btn {
   font-size: 0.9rem;
-  color: var(--primary-red);
+  font-weight: 700;
+  color: var(--text-dark);
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.news-card:hover .read-more {
-  color: var(--white);
+.read-more-btn:hover {
+  color: var(--primary-red);
 }
 
 /* =========================================
-   FOOTER (Diseño Actualizado)
+   TESTIMONIALS (NUEVO ESTILO GRID)
+========================================= */
+.testimonials-section {
+  padding: 100px 0;
+}
+
+.stars-rating {
+  color: #ffd700; /* Oro para las estrellas */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-box {
+  background: var(--bg-contrast);
+  padding: 40px 30px;
+  border-radius: 12px;
+  text-align: left;
+  position: relative;
+}
+
+.main-quote {
+  font-size: 3rem;
+  color: var(--primary-red);
+  opacity: 0.2;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.review-body {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  padding-top: 40px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.reviewer-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ddd;
+  background-size: cover;
+  background-position: center;
+}
+
+.reviewer-data h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+
+.reviewer-data span {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* =========================================
+   CLIENTI (NUEVO ESTILO LISTA)
+========================================= */
+.clients-title-simple {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+.clients-list {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.clients-list span {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #999; /* Gris claro */
+}
+
+/* =========================================
+   FOOTER
 ========================================= */
 .main-footer {
-  background: #111111; /* Un negro ligeramente más suave que el puro */
+  background: #111111;
   color: var(--white);
   padding: 80px 0 20px;
   font-size: 14px;
@@ -614,7 +503,7 @@ ul {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr; /* Proporciones basadas en la imagen */
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
   gap: 40px;
 }
 
@@ -623,7 +512,7 @@ ul {
   max-height: 45px;
   width: auto;
   margin-bottom: 20px;
-  filter: brightness(0) invert(1); /* Pone el logo en blanco */
+  filter: brightness(0) invert(1);
 }
 .footer-desc {
   color: #888888;
@@ -741,68 +630,115 @@ ul {
 }
 
 /* =========================================
-   12. RESPONSIVE DESIGN (Media Queries)
+   RESPONSIVE DESIGN
 ========================================= */
 
-/* Tablets and Medium Screens */
+/* Tablets y Pantallas Medianas */
 @media (max-width: 1024px) {
-  /* Layout Adjustments */
+  .hero-title {
+    font-size: 3rem;
+  }
   .hero,
   .grid-2-cols {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 40px;
   }
-
   .hero {
     padding-top: 120px;
   }
-
+  .hero-description {
+    margin: 0 auto 30px;
+  }
   .hero-actions {
     justify-content: center;
     display: flex;
   }
 
-  /* Hide Desktop Nav */
-  .nav-links {
-    display: none;
-  }
-
-  /* Grids: From 4 to 2 columns */
+  /* Grids de 4 o 3 pasan a 2 columnas */
   .services-grid,
-  .news-grid,
+  .news-grid-3,
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  } /* Testimonios a 1 columna antes */
+
+  /* Menú Móvil */
+  .hamburger {
+    display: flex;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .nav-links {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.4s ease-in-out;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .nav-links li {
+    margin: 25px 0;
+  }
+  .nav-links a {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
 }
 
-/* Mobile Screens */
+/* Móviles */
 @media (max-width: 768px) {
-  /* Typography Adjustments */
   .hero-title {
     font-size: 2.5rem;
   }
-  .section-title {
+  .section-title,
+  .jumanji-title {
     font-size: 2rem;
   }
-  .jumanji-title {
-    font-size: 2.5rem;
+  .news-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 
-  /* Grids: From 2 to 1 column */
+  /* Todo a 1 columna */
   .services-grid,
-  .news-grid,
+  .news-grid-3,
   .footer-grid {
     grid-template-columns: 1fr;
-    text-align: center;
   }
 
-  /* Footer Mobile Alignment */
+  /* Alineaciones Footer Móvil */
+  .footer-grid {
+    text-align: center;
+  }
   .footer-col h4 {
-    margin: 0 auto 20px;
+    margin: 0 auto 25px;
   }
-  .contact-list li {
-    justify-content: center;
-  }
+  .contact-list li,
   .social-icons {
     justify-content: center;
   }
@@ -810,5 +746,10 @@ ul {
     flex-direction: column;
     gap: 15px;
     text-align: center;
+  }
+
+  .clients-list {
+    gap: 30px;
+    flex-direction: column;
   }
 }
