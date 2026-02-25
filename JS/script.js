@@ -1,21 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('main-header');
+document.addEventListener("DOMContentLoaded", () => {
+  // --- 1. TESTIMONIAL SLIDER LOGIC ---
+  const track = document.getElementById("testimonial-track");
+  const cards = Array.from(track.children);
+  const nextBtn = document.getElementById("next-btn");
+  const prevBtn = document.getElementById("prev-btn");
 
-    // Efecto sutil en el Navbar al hacer scroll (típico en diseños limpios)
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
-            header.style.padding = '15px 0';
-        } else {
-            header.style.boxShadow = 'none';
-            header.style.padding = '20px 0';
-        }
-    });
+  let currentIndex = 0;
 
-    // Desactivar comportamiento por defecto de enlaces vacíos
-    document.querySelectorAll('a[href="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-        });
-    });
+  // Calculates how much to move the track based on card width + margin
+  const updateSliderPosition = () => {
+    // Get the total width of a card including its CSS margins
+    const cardStyle = window.getComputedStyle(cards[0]);
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const margin =
+      parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+
+    const moveDistance = cardWidth + margin;
+
+    // Apply transform to slide
+    track.style.transform = `translateX(-${currentIndex * moveDistance}px)`;
+  };
+
+  const moveToNextSlide = () => {
+    if (currentIndex === cards.length - 1) {
+      currentIndex = 0; // Loop back to start
+    } else {
+      currentIndex++;
+    }
+    updateSliderPosition();
+  };
+
+  const moveToPrevSlide = () => {
+    if (currentIndex === 0) {
+      currentIndex = cards.length - 1; // Loop to end
+    } else {
+      currentIndex--;
+    }
+    updateSliderPosition();
+  };
+
+  // Event Listeners for Buttons
+  nextBtn.addEventListener("click", moveToNextSlide);
+  prevBtn.addEventListener("click", moveToPrevSlide);
+
+  // Optional: Auto-play functionality
+  let autoPlayInterval = setInterval(moveToNextSlide, 5000);
+
+  // Pause auto-play when hovering over the slider container
+  const sliderContainer = document.querySelector(".slider-container");
+  sliderContainer.addEventListener("mouseenter", () =>
+    clearInterval(autoPlayInterval),
+  );
+  sliderContainer.addEventListener("mouseleave", () => {
+    autoPlayInterval = setInterval(moveToNextSlide, 5000);
+  });
+
+  // Recalculate position on window resize to ensure responsiveness
+  window.addEventListener("resize", updateSliderPosition);
 });
