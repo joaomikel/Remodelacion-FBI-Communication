@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+
     <header id="main-header" class="header">
         <nav class="container nav-wrapper">
-            <a href="#" class="logo-link">
-                <img src="../MULTIMEDIA/logo.png" alt="FBI Communication Logo" class="brand-logo">
+            <a href="home.html" class="logo-link" aria-label="Torna alla Home di FBI Communication">
+                <img src="../MULTIMEDIA/LOGO/logo.png" alt="FBI Communication Logo" class="brand-logo">
             </a>
+
             <ul class="nav-links" id="nav-links">
                 <li><a href="../HTML/home.html">Home</a></li>
                 <li><a href="../HTML/Agency.html">Agenzia</a></li>
                 <li><a href="#servizi">Servizi</a></li>
                 <li><a href="../HTML/news.html">News</a></li>
-                <li><a href="#contatti">Contatti</a></li>
+                <li class="mobile-only"><a href="contact.html" class="text-red">Contatti</a></li>
             </ul>
-            <a href="#contact" class="btn-primary">Contattaci</a>
+
+            <a href="contact.html" class="btn-primary desktop-only">Contattaci</a>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -30,14 +41,17 @@
         <div class="hero-content">
             <span class="tag">LA TUA WEB AGENCY</span>
             <h1 class="hero-title">L'AGENZIA CHE <br><span class="text-red">MANCAVA</span></h1>
-            <p class="hero-description">Ci occuperemo a 360° della comunicazione e digitalizzazione della tua attività, portando il tuo brand al livello successivo.</p>
+            <p class="hero-description">Ci occuperemo a 360° della comunicazione e digitalizzazione della tua attività,
+                portando il tuo brand al livello successivo.</p>
             <div class="hero-actions">
                 <a href="#storia" class="btn-primary">INIZIA ORA</a>
             </div>
         </div>
         <div class="hero-image-wrapper hero-video-box">
-             <video autoplay loop muted playsinline class="video-rounded" style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(227, 32, 32, 0.1);">
-                <source src="https://www.fbicommunication.it/wp-content/uploads/2021/01/production-ID_4464847.mp4" type="video/mp4">
+            <video autoplay loop muted playsinline class="video-rounded"
+                style="box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 40px rgba(227, 32, 32, 0.1);">
+                <source src="https://www.fbicommunication.it/wp-content/uploads/2021/01/production-ID_4464847.mp4"
+                    type="video/mp4">
             </video>
         </div>
     </section>
@@ -48,17 +62,26 @@
                 <h2>IL PUNTO DI FORZA SONO <br><span class="text-red">LE PERSONE</span></h2>
             </div>
             <div class="chapa-container">
-                
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200" alt="FBI Communication Team" style="width: 100%; height: 350px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: var(--shadow-md); margin-bottom: 40px;">
 
-                <p class="lead-text">FBICOMMUNICATION nasce con l’obiettivo di fornire alle imprese gli strumenti adeguati per migliorare e ampliare la loro presenza online, diventando un punto di riferimento nel digital marketing in Calabria.</p>
-                
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200"
+                    alt="FBI Communication Team"
+                    style="width: 100%; height: 350px; object-fit: cover; object-position: center; border-radius: 20px; box-shadow: var(--shadow-md); margin-bottom: 40px;">
+
+                <p class="lead-text">FBICOMMUNICATION nasce con l’obiettivo di fornire alle imprese gli strumenti
+                    adeguati per migliorare e ampliare la loro presenza online, diventando un punto di riferimento nel
+                    digital marketing in Calabria.</p>
+
                 <div id="expandable-content" class="hidden-text">
-                    <p>La nostra filosofia si basa sul circondarsi di persone competenti e appassionate, che condividono la stessa visione aziendale e considerano il lavoro una vera e propria passione. Grazie alla presenza di professionisti altamente qualificati, l'agenzia è in grado di offrire una vasta gamma di servizi di alta qualità.</p>
+                    <p>La nostra filosofia si basa sul circondarsi di persone competenti e appassionate, che condividono
+                        la stessa visione aziendale e considerano il lavoro una vera e propria passione. Grazie alla
+                        presenza di professionisti altamente qualificati, l'agenzia è in grado di offrire una vasta
+                        gamma di servizi di alta qualità.</p>
                     <br>
-                    <p>Dalla consulenza alla progettazione, fino alla realizzazione di campagne pubblicitarie, siti web, video e molto altro ancora. Il segreto del nostro successo è proprio l'attenzione alle persone, creando un ambiente che stimoli la crescita individuale e aziendale.</p>
+                    <p>Dalla consulenza alla progettazione, fino alla realizzazione di campagne pubblicitarie, siti web,
+                        video e molto altro ancora. Il segreto del nostro successo è proprio l'attenzione alle persone,
+                        creando un ambiente che stimoli la crescita individuale e aziendale.</p>
                 </div>
-                
+
                 <button id="toggle-btn" class="btn-primary mt-20">
                     <span id="btn-text">SCOPRI DI PIÙ</span>
                     <i id="btn-icon" class="fa-solid fa-chevron-down ml-2"></i>
@@ -71,14 +94,16 @@
         <div class="container">
             <div class="mv-grid">
                 <div class="mv-card">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800" alt="Mission">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+                        alt="Mission">
                     <div class="mv-overlay">
                         <h3>La Nostra Mission</h3>
                         <p>Trasformare le tue idee in un ecosistema digitale di successo.</p>
                     </div>
                 </div>
                 <div class="mv-card">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Vision">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+                        alt="Vision">
                     <div class="mv-overlay">
                         <h3>La Nostra Vision</h3>
                         <p>Guidare l'innovazione del marketing in tutta la Calabria.</p>
@@ -112,7 +137,7 @@
         <div class="container footer-grid">
 
             <div class="footer-col brand-col">
-                <img src="../MULTIMEDIA/logo.png" alt="FBI Communication Logo" class="brand-logo-footer">
+                <img src="../MULTIMEDIA/LOGO/logo.png" alt="FBI Communication Logo" class="brand-logo-footer">
                 <p class="footer-desc">Siamo l'agenzia di servizi che si occupa della tua attività a 360 gradi. Il
                     nostro coraggio creativo al tuo servizio.</p>
                 <div class="social-icons">
@@ -165,5 +190,8 @@
     </footer>
 
     <script src="../JS/script_agency.js"></script>
+
+
 </body>
+
 </html>

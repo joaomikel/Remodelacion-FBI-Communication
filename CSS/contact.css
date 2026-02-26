@@ -1,0 +1,128 @@
+/* =========================================
+   PÁGINA DE CONTACTO (CONTATTI)
+========================================= */
+
+/* Ocultar el enlace de contacto de la lista en escritorio */
+.mobile-only {
+    display: none;
+}
+
+/* Mostrarlo solo cuando la pantalla es tamaño tablet/móvil y aparece la hamburguesa */
+@media (max-width: 1024px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* El formulario ocupa más espacio que la info */
+    gap: 60px;
+    align-items: start;
+}
+
+/* Tarjetas de Información */
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fdfdfd;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ffeeee;
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.info-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+.info-text p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Formulario */
+.contact-form-wrapper {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* OBLIGATORIO para que el padding no rompa el ancho */
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--primary-red);
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.1); /* Brillo rojo sutil al escribir */
+}
+
+.input-group textarea {
+    resize: vertical; /* Permite estirar solo hacia abajo */
+}
+
+/* Responsive para la página de Contacto */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

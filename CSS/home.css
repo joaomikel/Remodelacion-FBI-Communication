@@ -1,6 +1,23 @@
 /* =========================================
    VARIABLES & RESET & ACCESSIBILITY
 ========================================= */
+
+/* =========================================
+   VISIBILIDAD DEL MENÚ EN MÓVIL/ESCRITORIO
+========================================= */
+
+/* 1. Ocultar el enlace de "Contatti" de la lista en ordenadores */
+.mobile-only {
+    display: none;
+}
+
+/* 2. Mostrarlo SOLO en tablets y móviles cuando aparece la hamburguesa */
+@media (max-width: 1024px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
 :root {
   --primary-red: #e32020;
   --primary-red-hover: #c01a1a;
