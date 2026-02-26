@@ -47,48 +47,57 @@ const teamMembers = [
     }
 ];
 
-// Datos extraídos del HTML
+// =========================================
+// DATOS DE LOS COLABORADORES
+// =========================================
 const collaborators = [
     { 
         name: "Alessandro Campaiola", 
         role: "Doppiatore", 
         image: "https://www.fbicommunication.it/wp-content/uploads/2021/01/DSC_2228.jpg", 
-        description: "Alessandro Campaiola, noto anche con lo pseudonimo di Alessandro Ward, è un doppiatore italiano. Figlio d’arte della doppiatrice Monica Ward, nipote dei doppiatori Luca Ward e...",
-        linkedin: "https://www.instagram.com/aleward92/?hl=it" 
+        description: "Alessandro Campaiola, noto anche con lo pseudonimo di Alessandro Ward, è un doppiatore italiano...",
+        linkedin: "https://www.instagram.com/aleward92/?hl=it",
+        pageLink: "alessandro-campaiola.html" // <-- ENLACE A SU PORTAFOLIO
     },
     { 
         name: "Angelo Maggi", 
         role: "Doppiatore", 
         image: "https://www.fbicommunication.it/wp-content/uploads/2021/01/angelomaggi.png", 
-        description: "Angelo Maggi è un attore, doppiatore, direttore del doppiaggio. Per i tuoi video aziendali potresti avere una delle voci italiane più famose, infatti Angelo ha doppiato...",
-        linkedin: "https://www.instagram.com/angelomaggiofficial/?hl=it"
+        description: "Angelo Maggi è un attore, doppiatore, direttore del doppiaggio. Per i tuoi video aziendali potresti avere una delle voci italiane più famose...",
+        linkedin: "https://www.instagram.com/angelomaggiofficial/?hl=it",
+        pageLink: "angelo-maggi.html" // <-- ENLACE A SU PORTAFOLIO
     },
     { 
         name: "Eleonora Reti", 
         role: "Doppiatore", 
         image: "https://www.fbicommunication.it/wp-content/uploads/2022/10/eleonorareti1.png", 
-        description: "Figlia del doppiatore Maurizio Reti, ha doppiato l'attrice argentina Florencia Bertotti nelle telenovele Flor - Speciale come te e Niní, è stata la voce italiana di Kaley Cuoco nel ruolo di Penny nella sitcom The Big Bang Theory...",
-        linkedin: "#"
+        description: "Figlia del doppiatore Maurizio Reti, ha doppiato l'attrice argentina Florencia Bertotti, è stata la voce italiana di Kaley Cuoco...",
+        linkedin: "#",
+        pageLink: "eleonora-reti.html" // <-- ENLACE A SU PORTAFOLIO
     }
 ];
 
 // =========================================
-// 2. LÓGICA DE RENDERIZADO Y EVENTOS
+// LÓGICA DE RENDERIZADO DE TARJETAS
 // =========================================
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- A. Renderizado de las Tarjetas (Equipo y Colaboradores) ---
     function renderCards(containerId, dataArray) {
         const grid = document.getElementById(containerId);
         
         if (grid) {
-            grid.innerHTML = ''; // Limpiar contenido previo por seguridad
+            grid.innerHTML = ''; 
             
             dataArray.forEach(person => {
                 const card = document.createElement('div');
-                card.className = 'team-overlay-card'; // MISMA CLASE CSS PARA AMBOS
+                card.className = 'team-overlay-card'; 
                 
+                // Creamos el botón dinámicamente si el colaborador tiene la propiedad "pageLink"
+                let buttonHTML = '';
+                if (person.pageLink) {
+                    buttonHTML = `<a href="${person.pageLink}" class="btn-primary" style="display: inline-block; padding: 6px 15px; font-size: 0.85rem; margin-top: 15px;">Scopri di più</a>`;
+                }
+
                 card.innerHTML = `
                     <img src="${person.image}" alt="${person.name}" class="team-full-img">
                     <div class="team-overlay-content">
@@ -101,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <div class="social-icon">
                                     <a href="${person.linkedin || '#'}"><i class="fa-brands fa-instagram"></i></a>
                                 </div>
-                            </div>
+                                ${buttonHTML} </div>
                         </div>
                     </div>
                 `;
@@ -111,11 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Inyectamos el equipo en su contenedor
-    renderCards('team-grid', teamMembers);
+    if (typeof teamMembers !== 'undefined') renderCards('team-grid', teamMembers);
     
-    // Inyectamos los colaboradores en su contenedor (usarán el mismo diseño exacto)
+    // Inyectamos los colaboradores
     renderCards('collaborators-grid', collaborators);
-
 
     // --- B. Lógica del botón "Scopri di più" (Historia) ---
     const toggleBtn = document.getElementById('toggle-btn');

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alessandro Campaiola - FBI Communication</title>
+    <link rel="stylesheet" href="../../CSS/home.css">
+    <link rel="stylesheet" href="../../CSS/agency.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ================= ESTILOS ESPECÍFICOS DEL PORTAFOLIO ================= */
+        
+        /* 1. Cabecera / Foto de presentación */
+        .hero-collaborator {
+            position: relative;
+            width: 100%;
+            height: 60vh; /* Ocupa el 60% del alto de la pantalla */
+            min-height: 400px;
+            /* AQUÍ ESTÁ LA NUEVA IMAGEN DE CABECERA */
+            background-image: url('https://www.fbicommunication.it/wp-content/uploads/2021/02/campaiola1.jpg');
+            background-size: cover;
+            background-position: center; /* Centramos la imagen */
+            background-attachment: fixed; /* Efecto Parallax opcional */
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 50px;
+        }
+
+        /* Degradado oscuro para que el texto resalte sobre la foto */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-collaborator-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .collaborator-tag {
+            background-color: var(--primary-red);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .hero-collaborator-content h1 {
+            font-size: 4rem;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        .hero-collaborator-content h3 {
+            color: #ccc;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        /* 2. Sección de contenido (Bio + Reel) */
+        .portfolio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            margin-top: -30px; /* Sube un poco sobre la imagen anterior */
+            position: relative;
+            z-index: 10;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .portfolio-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .portfolio-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: #222;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .portfolio-social a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .bio-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .video-reel {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-top: 30px;
+        }
+
+        .video-reel iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 900px) {
+            .portfolio-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-collaborator-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="main-header" class="header" style="background-color: #fff;">
+        <nav class="container nav-wrapper">
+            <a href="home.html" class="logo-link" aria-label="Torna alla Home di FBI Communication">
+                <img src="../../MULTIMEDIA/LOGO/logo.png" alt="FBI Communication Logo" class="brand-logo">
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Agency.html">Agenzia</a></li>
+                <li><a href="news.html">News</a></li>
+                <li class="mobile-only"><a href="contact.html">Contatti</a></li>
+            </ul>
+
+            <a href="contact.html" class="btn-primary desktop-only">Contattaci</a>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <div style="height: 90px;"></div>
+
+    <section class="hero-collaborator">
+        <div class="hero-overlay"></div>
+        <div class="container hero-collaborator-content">
+            <a href="../agency.html#collaborators-grid" style="display: inline-flex; align-items: center; gap: 8px; color: #fff; font-weight: bold; margin-bottom: 20px; text-decoration: none; opacity: 0.8; transition: 0.3s;">
+                <i class="fa-solid fa-arrow-left"></i> Torna all'Agenzia
+            </a>
+            
+            <div>
+                <span class="collaborator-tag">COLLABORATORE</span>
+                <h1>Alessandro Campaiola</h1>
+                <h3>Doppiatore</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-spacing bg-light" style="padding-top: 40px;">
+        <div class="container portfolio-content">
+            
+            <div>
+                <div class="info-card">
+                    <h4 style="margin-bottom: 20px; font-size: 1.3rem;">Segui Alessandro</h4>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px;">
+                        Rimani aggiornato sui suoi ultimi progetti di doppiaggio e lavori sui social network.
+                    </p>
+                    <div class="portfolio-social">
+                        <a href="https://www.instagram.com/aleward92/?hl=it" target="_blank" style="background-color: #E1306C;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/alessandro.campaiola1" target="_blank" style="background-color: #3b5998;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/channel/UCRm-BxDK1IfSYSeS9dvMZKA" target="_blank" style="background-color: #FF0000;" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bio-text">
+                <h2 style="margin-bottom: 20px;">Biografia</h2>
+                <p>
+                    Alessandro Campaiola, noto anche con lo pseudonimo di Alessandro Ward, è un doppiatore italiano. Figlio d’arte della doppiatrice Monica Ward, nipote dei doppiatori Luca Ward e Andrea Ward e fratellastro del doppiatore Federico Campaiola, porta avanti la grande tradizione di famiglia nel mondo del doppiaggio.
+                </p>
+                <p>
+                    È una delle voci italiane più dinamiche e versatili, dando voce a numerosi personaggi in film e serie TV. Una risorsa esterna fondamentale per dare carattere e professionalità ai nostri progetti audiovisivi e spot aziendali.
+                </p>
+
+                <h2 style="margin-top: 50px; margin-bottom: 20px;">Showreel / Lavori</h2>
+                <div class="video-reel">
+                    <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4?si=r43W3fLwL2iB52mK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contatti" class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <img src="../../MULTIMEDIA/LOGO/logo.png" alt="FBI Communication Logo" class="brand-logo-footer">
+                <p class="footer-desc">Siamo l'agenzia di servizi che si occupa della tua attività a 360 gradi. Il
+                    nostro coraggio creativo al tuo servizio.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Visita il nostro profilo Facebook"><i class="fa-brands fa-facebook-f"
+                            aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Visita il nostro profilo Instagram"><i class="fa-brands fa-instagram"
+                            aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Visita il nostro profilo LinkedIn"><i class="fa-brands fa-linkedin-in"
+                            aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contatti</h4>
+                <p class="footer-subtitle">INDICAZIONI</p>
+                <ul class="contact-list">
+                    <li><i class="fa-regular fa-building icon-red" aria-hidden="true"></i> Viale Magna Grecia, 13 -
+                        88100 Catanzaro</li>
+                    <li><i class="fa-solid fa-location-dot icon-red" aria-hidden="true"></i> Via Lucrezia della Valle,
+                        19 - 88100 Catanzaro</li>
+                    <li><i class="fa-solid fa-phone icon-red" aria-hidden="true"></i> 0961 730934</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Dove Siamo</h4>
+                <div class="map-wrapper">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=400"
+                        alt="Mappa della sede a Catanzaro" class="map-img">
+                    <div class="map-pin" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>L'Agenzia</h4>
+                <ul class="links-list">
+                    <li><a href="#">Chi Siamo</a></li>
+                    <li><a href="#servizi">I Nostri Servizi</a></li>
+                    <li><a href="#news">Ultime News</a></li>
+                    <li><a href="#">Lavora con noi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <div class="bottom-links">
+                <a href="#">Termini e Condizioni</a> | <a href="#">Privacy Policy</a>
+            </div>
+            <div class="copyright">
+                <p>© 2026 FBI Communication. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../JS/script_agency.js"></script>
+</body>
+</html>
