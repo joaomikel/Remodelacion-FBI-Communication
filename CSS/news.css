@@ -1,19 +1,4 @@
-/* =========================================
-   1. VARIABLES, RESET Y ACCESIBILIDAD
-========================================= */
-:root {
-  --primary-red: #e32020;
-  --primary-red-hover: #c01a1a;
-  --dark-bg: #151515;
-  --text-dark: #1a1a1a;
-  --text-light: #4d4d4d; /* Contraste accesible */
-  --bg-contrast: #f4f6f8;
-  --white: #ffffff;
-  --font-main: "Poppins", sans-serif;
-  --transition: 0.3s ease-in-out;
-  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
+
 
 /* =========================================
    VISIBILIDAD DEL MENÚ EN MÓVIL/ESCRITORIO

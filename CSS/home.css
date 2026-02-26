@@ -8,22 +8,24 @@
 
 /* 1. Ocultar el enlace de "Contatti" de la lista en ordenadores */
 .mobile-only {
-    display: none;
+  display: none;
 }
 
 /* 2. Mostrarlo SOLO en tablets y móviles cuando aparece la hamburguesa */
 @media (max-width: 1024px) {
-    .mobile-only {
-        display: block;
-    }
+  .mobile-only {
+    display: block;
+  }
 }
 
 :root {
-  --primary-red: #e32020;
-  --primary-red-hover: #c01a1a;
+  /* --- COLORES ESTILO INSTAGRAM / MODERNO --- */
+  --primary-red: #ee572f;       /* Tu naranja vibrante */
+  --primary-red-hover: #cf205b; /* Rosa fucsia/magenta (Estilo Instagram) */
+  
+  /* --- RESTO DE VARIABLES MANTENIENDO TU POPPINS --- */
   --dark-bg: #151515;
   --text-dark: #1a1a1a;
-  /* Oscurecido de #666 a #4d4d4d para pasar WCAG AA (Contraste visual) */
   --text-light: #4d4d4d;
   --bg-contrast: #f4f6f8;
   --white: #ffffff;
@@ -327,22 +329,25 @@ ul {
 }
 
 .service-card {
-  background: var(--white);
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  border: 1px solid rgba(0, 0, 0, 0.03);
-
-  /* AÑADE ESTA LÍNEA PARA CENTRAR ICONOS Y TEXTO SIEMPRE */
+  background: var(--white); /* Fondo blanco puro */
+  padding: 35px 25px;
+  border-radius: 16px;
   text-align: center;
+  /* Borde sutil para delimitar la tarjeta */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  /* Sombra más marcada que antes */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: var(--transition);
+  position: relative;
+  top: 0; /* Para la animación de hover */
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
-  border-color: rgba(227, 32, 32, 0.2);
+  transform: translateY(-8px); /* Se mueve 8px hacia arriba */
+  box-shadow: 0 12px 24px rgba(227, 32, 32, 0.15); /* Sombra más grande y con un toque rojizo */
+  border-color: transparent; /* El borde desaparece para que destaque la sombra */
 }
+
 .s-icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
