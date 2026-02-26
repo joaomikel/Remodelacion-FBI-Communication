@@ -408,6 +408,7 @@ ul {
 /* =========================================
    5. FOOTER (Igual que Home)
 ========================================= */
+/* Footer */
 .main-footer {
   background: var(--dark-bg);
   color: var(--white);
@@ -424,7 +425,7 @@ ul {
   filter: brightness(0) invert(1);
 }
 .footer-desc {
-  color: #cccccc;
+  color: #cccccc; /* Cambiado para mayor contraste */
   font-size: 0.95rem;
   margin-bottom: 25px;
 }
