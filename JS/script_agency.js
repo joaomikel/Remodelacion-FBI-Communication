@@ -47,7 +47,7 @@ const teamMembers = [
     }
 ];
 
-// Datos extraídos del HTML que me enviaste
+// Datos extraídos del HTML
 const collaborators = [
     { 
         name: "Alessandro Campaiola", 
@@ -68,18 +68,17 @@ const collaborators = [
         role: "Doppiatore", 
         image: "https://www.fbicommunication.it/wp-content/uploads/2022/10/eleonorareti1.png", 
         description: "Figlia del doppiatore Maurizio Reti, ha doppiato l'attrice argentina Florencia Bertotti nelle telenovele Flor - Speciale come te e Niní, è stata la voce italiana di Kaley Cuoco nel ruolo di Penny nella sitcom The Big Bang Theory...",
-        linkedin: "#" // Ocultamos el link porque en la web original estaban copiados por error los de Angelo Maggi
+        linkedin: "#"
     }
 ];
 
-
 // =========================================
-// 2. LÓGICA DE RENDERIZADO DE TARJETAS
+// 2. LÓGICA DE RENDERIZADO Y EVENTOS
 // =========================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Función universal para renderizar las tarjetas (aplica el mismo estilo a Equipo y Colaboradores)
+    // --- A. Renderizado de las Tarjetas (Equipo y Colaboradores) ---
     function renderCards(containerId, dataArray) {
         const grid = document.getElementById(containerId);
         
@@ -118,10 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCards('collaborators-grid', collaborators);
 
 
-    // =========================================
-    // 3. LÓGICA DEL BOTÓN "SCOPRI DI PIÙ" (Historia)
-    // =========================================
-    
+    // --- B. Lógica del botón "Scopri di più" (Historia) ---
     const toggleBtn = document.getElementById('toggle-btn');
     const expandableContent = document.getElementById('expandable-content');
     const btnText = document.getElementById('btn-text');
@@ -138,6 +134,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 btnText.textContent = "SCOPRI DI PIÙ";
                 btnIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
             }
+        });
+    }
+
+    // --- C. Lógica del Menú Móvil (Hamburguesa) ---
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if (hamburger && navLinks) {
+        // Abrir/Cerrar al hacer clic en la hamburguesa
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navLinks.classList.toggle("active");
+            
+            // Opcional: Actualizar accesibilidad (aria-expanded)
+            let expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Cerrar el menú automáticamente al hacer clic en cualquier enlace
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navLinks.classList.remove("active");
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
         });
     }
 });

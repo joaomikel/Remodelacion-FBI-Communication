@@ -1,4 +1,23 @@
-/* ---- HERO VIDEO ---- */
+/* =========================================
+   HERO VIDEO
+========================================= */
+
+/* =========================================
+   VISIBILIDAD DEL MENÚ EN MÓVIL/ESCRITORIO
+========================================= */
+
+/* 1. Ocultar el enlace de "Contatti" de la lista en ordenadores */
+.mobile-only {
+    display: none;
+}
+
+/* 2. Mostrarlo SOLO en tablets y móviles cuando aparece la hamburguesa */
+@media (max-width: 1024px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
 .hero-agenzia .hero-video-box {
     width: 100%;
     position: relative;
@@ -13,7 +32,7 @@
 }
 
 /* =========================================
-   ESPACIADOS Y FONDOS (NUEVO)
+   ESPACIADOS Y FONDOS
 ========================================= */
 /* Aumentamos el padding para que la página respire más y no se vea aplastada */
 .section-spacing {
@@ -25,7 +44,12 @@
     background-color: #111111;
 }
 
-/* ---- LA CHAPA Y TEXTO OCULTO ---- */
+/* =========================================
+   LA CHAPA Y TEXTO OCULTO
+========================================= */
+.about-chapa {
+    padding: 80px 0;
+}
 .chapa-container {
     max-width: 800px;
     margin: 0 auto;
@@ -54,7 +78,12 @@
 .mt-20 { margin-top: 20px; }
 .ml-2 { margin-left: 8px; }
 
-/* ---- FOTOS CON TEXTO DENTRO ---- */
+/* =========================================
+   FOTOS CON TEXTO DENTRO (MISSION / VISION)
+========================================= */
+.mission-vision {
+    padding: 80px 0;
+}
 .mv-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -64,7 +93,7 @@
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    height: 400px; /* Aumentado un poco para que destaquen más */
+    height: 400px;
     box-shadow: var(--shadow-md);
 }
 .mv-card img {
@@ -91,7 +120,12 @@
     color: var(--white);
 }
 
-/* ---- EL EQUIPO Y COLABORADORES (Estilo Foto Entera / Overlay) ---- */
+/* =========================================
+   EL EQUIPO Y COLABORADORES (Overlay Cards)
+========================================= */
+.team-section {
+    padding: 80px 0;
+}
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -172,7 +206,7 @@
     margin-top: 5px;
 }
 
-/* Botón de LinkedIn estilo agencia */
+/* Botón Social estilo agencia */
 .social-icon a {
     display: inline-flex;
     align-items: center;
@@ -192,7 +226,7 @@
 }
 
 /* =========================================
-   FOOTER
+   FOOTER OCSCURO
 ========================================= */
 .main-footer {
   background: #111111;
@@ -325,10 +359,12 @@
   color: var(--primary-red);
 }
 
+
 /* =========================================
-   RESPONSIVE DESIGN 
+   RESPONSIVE DESIGN Y MENÚ HAMBURGUESA
 ========================================= */
 
+/* Tablets y Pantallas Medianas (1024px) */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 3rem;
@@ -350,6 +386,7 @@
     display: flex;
   }
 
+  /* Grids de 4 o 3 pasan a 2 columnas */
   .services-grid,
   .news-grid-3,
   .footer-grid {
@@ -359,28 +396,35 @@
     grid-template-columns: 1fr;
   } 
 
-  .hamburger {
-    display: flex;
-  }
+  /* --- LÓGICA DEL MENÚ MÓVIL --- */
   .desktop-only {
-    display: none;
+    display: none !important;
   }
+
+  .hamburger {
+    display: block !important;
+    z-index: 10002; /* Por encima del menú desplegado */
+  }
+
+  /* Menú desplegable oculto por defecto a la izquierda */
   .nav-links {
-    display: flex;
     position: fixed;
     top: 0;
-    left: -100%;
-    width: 100vw;
+    left: -100%; 
+    width: 100%;
     height: 100vh;
-    background-color: var(--white);
+    background-color: var(--white, #ffffff); /* Fondo sólido */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: left 0.4s ease-in-out;
     padding: 0;
     margin: 0;
-    z-index: 1000;
+    z-index: 10000;
   }
+
+  /* El JS añade esta clase para mostrar el menú */
   .nav-links.active {
     left: 0;
   }
@@ -391,17 +435,20 @@
     font-size: 1.8rem;
     font-weight: 700;
   }
+
+  /* Animación de la hamburguesa a "X" */
   .hamburger.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
   .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
 
+/* Teléfonos Móviles (768px) */
 @media (max-width: 768px) {
   /* Reducimos el espaciado enorme de escritorio a algo normal para móviles */
   .section-spacing {
@@ -420,6 +467,7 @@
     gap: 20px;
   }
 
+  /* Todo a 1 columna */
   .services-grid,
   .news-grid-3,
   .footer-grid,
@@ -427,6 +475,7 @@
     grid-template-columns: 1fr;
   }
 
+  /* En móviles mostramos el texto del equipo fijo, ya que no hay 'hover' */
   .team-overlay-desc {
     grid-template-rows: 1fr; 
   }
@@ -434,6 +483,7 @@
     filter: grayscale(0%); 
   }
 
+  /* Alineaciones centradas para el footer en móvil */
   .footer-grid {
     text-align: center;
   }

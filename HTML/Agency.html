@@ -10,19 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    
     <header id="main-header" class="header">
         <nav class="container nav-wrapper">
-            <a href="#" class="logo-link">
-                <img src="../MULTIMEDIA/logo.png" alt="FBI Communication Logo" class="brand-logo">
+            <a href="home.html" class="logo-link" aria-label="Torna alla Home di FBI Communication">
+                <img src="../MULTIMEDIA/LOGO/logo.png" alt="FBI Communication Logo" class="brand-logo">
             </a>
-            <ul class="nav-links">
+            
+            <ul class="nav-links" id="nav-links">
                 <li><a href="home.html">Home</a></li>
-                <li><a href="#agency" class="text-red">Agenzia</a></li>
-                <li><a href="#services">Servizi</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#contact">Contatti</a></li>
+                <li><a href="Agency.html">Agenzia</a></li>
+                <li><a href="#">Servizi</a></li>
+                <li><a href="#">News</a></li>
+                <li class="mobile-only"><a href="contact.html" class="text-red">Contatti</a></li>
             </ul>
-            <a href="#contact" class="btn-primary">Contattaci</a>
+
+            <a href="contact.html" class="btn-primary desktop-only">Contattaci</a>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </nav>
     </header>
 
@@ -112,7 +121,7 @@
         <div class="container footer-grid">
 
             <div class="footer-col brand-col">
-                <img src="../MULTIMEDIA/logo.png" alt="FBI Communication Logo" class="brand-logo-footer">
+                <img src="../MULTIMEDIA/LOGO/logo.png" alt="FBI Communication Logo" class="brand-logo-footer">
                 <p class="footer-desc">Siamo l'agenzia di servizi che si occupa della tua attività a 360 gradi. Il
                     nostro coraggio creativo al tuo servizio.</p>
                 <div class="social-icons">
@@ -165,5 +174,7 @@
     </footer>
 
     <script src="../JS/script_agency.js"></script>
+    
+    
 </body>
 </html>
