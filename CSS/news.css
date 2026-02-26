@@ -1,0 +1,686 @@
+/* =========================================
+   1. VARIABLES, RESET Y ACCESIBILIDAD
+========================================= */
+:root {
+  --primary-red: #e32020;
+  --primary-red-hover: #c01a1a;
+  --dark-bg: #151515;
+  --text-dark: #1a1a1a;
+  --text-light: #4d4d4d; /* Contraste accesible */
+  --bg-contrast: #f4f6f8;
+  --white: #ffffff;
+  --font-main: "Poppins", sans-serif;
+  --transition: 0.3s ease-in-out;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px dashed var(--primary-red);
+  outline-offset: 4px;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =========================================
+   2. CLASES GLOBALES UTILITARIAS
+========================================= */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.text-center {
+  text-align: center;
+}
+.bg-contrast {
+  background-color: var(--bg-contrast);
+}
+.text-red {
+  color: var(--primary-red);
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-red);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(227, 32, 32, 0.3);
+  transition: var(--transition);
+}
+.btn-primary:hover {
+  background-color: var(--primary-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(227, 32, 32, 0.4);
+}
+
+/* =========================================
+   3. HEADER Y NAVEGACIÓN (Igual que Home)
+========================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 9999;
+  padding: 20px 0;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.brand-logo {
+  height: 45px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  color: var(--text-dark);
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--primary-red);
+  transition: var(--transition);
+}
+.nav-links a:hover::after,
+.nav-links a.active-link::after {
+  width: 100%;
+}
+.nav-links a.active-link {
+  color: var(--primary-red);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 5px;
+  z-index: 10001;
+}
+.hamburger .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-dark);
+  transition: var(--transition);
+  border-radius: 2px;
+}
+
+/* =========================================
+   4. PÁGINA NEWS - ESTRUCTURA PRINCIPAL
+========================================= */
+.pt-header {
+  padding-top: 160px;
+  padding-bottom: 60px;
+}
+.section-padding {
+  padding: 80px 0;
+}
+.section-padding-bottom {
+  padding-bottom: 100px;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Layout Destacado (1 Grande, 2 Pequeñas) --- */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  align-items: stretch;
+}
+
+.news-card-large {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  min-height: 450px;
+}
+.img-container-large {
+  height: 100%;
+  width: 100%;
+}
+.img-container-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.news-card-large:hover .img-container-large img {
+  transform: scale(1.03);
+}
+
+.news-content-large {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
+  color: var(--white);
+  z-index: 2;
+}
+.news-content-large h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 15px 0;
+  line-height: 1.3;
+}
+.news-excerpt {
+  margin-bottom: 25px;
+  font-size: 1.05rem;
+  opacity: 0.9;
+  max-width: 90%;
+}
+
+.news-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.read-more-btn {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.read-more-btn:hover {
+  color: var(--primary-red);
+  gap: 12px;
+}
+.news-content-large .read-more-btn {
+  color: var(--white);
+}
+.news-content-large .read-more-btn:hover {
+  color: var(--primary-red);
+}
+
+/* Noticias Secundarias */
+.secondary-features {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.news-card-horizontal {
+  display: flex;
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+}
+.news-card-horizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+.img-container-horiz {
+  flex: 1;
+  min-width: 40%;
+}
+.img-container-horiz img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.news-content-horiz {
+  flex: 1.5;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.news-content-horiz h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 10px 0 20px;
+  line-height: 1.4;
+}
+
+/* --- Archivo de Noticias (Grid de 3) --- */
+.archive-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+.archive-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-red);
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.news-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.news-card-img {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.news-card-img:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+}
+.img-container {
+  height: 220px;
+  overflow: hidden;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.news-card-img:hover .img-container img {
+  transform: scale(1.05);
+}
+.news-content {
+  padding: 30px;
+}
+.news-content h3 {
+  font-size: 1.2rem;
+  margin: 15px 0 20px;
+  line-height: 1.4;
+}
+
+/* --- Paginación --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+.page-num,
+.page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--bg-contrast);
+  color: var(--text-dark);
+  font-weight: 700;
+  transition: var(--transition);
+}
+.page-num:hover,
+.page-nav:hover:not(.disabled) {
+  background: #e0e0e0;
+  color: var(--primary-red);
+}
+.page-num.active {
+  background: var(--primary-red);
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(227, 32, 32, 0.3);
+}
+.dots {
+  font-weight: 700;
+  color: var(--text-light);
+  margin: 0 5px;
+}
+.page-nav.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   5. FOOTER (Igual que Home)
+========================================= */
+.main-footer {
+  background: var(--dark-bg);
+  color: var(--white);
+  padding: 80px 0 20px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
+  gap: 40px;
+}
+.brand-logo-footer {
+  height: 50px;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+}
+.footer-desc {
+  color: #cccccc;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.social-icons a:hover {
+  background: var(--primary-red);
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+}
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50%;
+  height: 2px;
+  background: var(--primary-red);
+}
+.footer-subtitle {
+  font-size: 0.8rem;
+  color: var(--primary-red);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+.contact-list li {
+  color: #cccccc;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.icon-red {
+  color: var(--primary-red);
+  margin-top: 4px;
+}
+.map-wrapper {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.map-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+.map-wrapper:hover .map-img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+.map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary-red);
+  font-size: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.links-list li {
+  margin-bottom: 12px;
+}
+.links-list a {
+  color: #cccccc;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+.links-list a:hover {
+  color: var(--primary-red);
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 50px;
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #999;
+  font-size: 0.85rem;
+}
+.bottom-links a {
+  color: #999;
+  margin: 0 10px;
+}
+.bottom-links a:hover {
+  color: var(--white);
+}
+
+/* =========================================
+   6. RESPONSIVE DESIGN (Tablets y Móviles)
+========================================= */
+
+@media (max-width: 992px) {
+  .hamburger {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+
+  /* Menú lateral estilo off-canvas para móviles */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.4s ease-in-out;
+    padding-top: 60px;
+    margin: 0;
+    z-index: 9998;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  .nav-links li {
+    margin: 20px 0;
+  }
+  .nav-links a {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Ajustes Footer y Grids Tablet */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .news-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Ajustes Feature Grid Tablet */
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .news-card-large {
+    height: 450px;
+  }
+  .news-content-large h2 {
+    font-size: 1.8rem;
+  }
+  .news-card-horizontal {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Textos más pequeños */
+  .page-title {
+    font-size: 2.2rem;
+  }
+  .archive-title {
+    font-size: 1.6rem;
+  }
+
+  /* Grids a 1 sola columna en móvil */
+  .news-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  /* Centrados forzados para footer móvil */
+  .footer-col h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact-list li {
+    justify-content: center;
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  /* Ajustes News Highlight Móvil */
+  .news-card-large {
+    height: 400px;
+  }
+  .news-content-large {
+    padding: 25px;
+  }
+  .news-content-large h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+  .news-excerpt {
+    display: none;
+  } /* Ocultamos extracto por espacio */
+
+  /* Convierte tarjetas horizontales a verticales */
+  .news-card-horizontal {
+    flex-direction: column;
+  }
+  .img-container-horiz {
+    height: 200px;
+    width: 100%;
+  }
+  .news-content-horiz {
+    padding: 25px;
+    flex: auto;
+  }
+
+  /* Paginación en móvil */
+  .page-num,
+  .page-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
