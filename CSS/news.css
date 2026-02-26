@@ -15,6 +15,23 @@
   --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* =========================================
+   VISIBILIDAD DEL MENÚ EN MÓVIL/ESCRITORIO
+========================================= */
+
+/* 1. Ocultar el enlace de "Contatti" de la lista en ordenadores */
+.mobile-only {
+    display: none;
+}
+
+/* 2. Mostrarlo SOLO en tablets y móviles cuando aparece la hamburguesa */
+@media (max-width: 1024px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -111,12 +128,14 @@ ul {
   gap: 30px;
   align-items: center;
 }
+
 .nav-links a {
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1.1rem; /* <-- Sube este valor (antes estaba en 0.95rem) */
   position: relative;
   color: var(--text-dark);
 }
+
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -540,6 +559,212 @@ ul {
 }
 
 /* =========================================
+   ESTILOS LECTURA DE ARTÍCULO (articulo.html)
+========================================= */
+
+.article-header {
+  max-width: 800px; /* Centrado para lectura óptima */
+  margin: 0 auto 40px;
+}
+
+.article-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.meta-text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.publish-date {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.article-hero-image {
+  margin-bottom: 50px;
+}
+
+.article-hero-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Área de Lectura (Estrecha para que el ojo no se canse) */
+.article-body {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.15rem; /* Letra un poco más grande para leer cómodo */
+  color: #333;
+  padding: 0 20px;
+}
+
+.article-body .lead-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.article-body h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 40px 0 20px;
+  color: var(--text-dark);
+}
+
+.article-body p { margin-bottom: 25px; }
+
+.article-body ul {
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+.article-body ul li {
+  margin-bottom: 10px;
+  position: relative;
+  list-style-type: disc;
+  color: var(--text-light);
+}
+
+.article-body blockquote {
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--primary-red);
+  padding: 30px;
+  background: var(--bg-contrast);
+  border-left: 5px solid var(--primary-red);
+  border-radius: 0 15px 15px 0;
+  margin: 40px 0;
+  position: relative;
+}
+
+.article-body blockquote i {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  opacity: 0.1;
+  font-size: 3rem;
+}
+
+.inline-article-img {
+  width: 100%;
+  border-radius: 15px;
+  margin: 30px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.article-share {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.article-share span { font-weight: 700; }
+
+.article-share a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-contrast);
+  color: var(--text-dark);
+}
+
+.article-share a:hover {
+  background: var(--primary-red);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   BOTÓN VOLVER ATRÁS (COMPLETO Y RESPONSIVE)
+========================================= */
+.back-btn-wrapper {
+    max-width: 800px; /* Exactamente el mismo ancho que el título y el texto */
+    margin: 0 auto 40px auto; /* Centrado en la pantalla y con espacio por debajo */
+    width: 90%; /* Respeta los márgenes laterales en móvil */
+    text-align: left; /* Mantiene el botón a la izquierda del bloque */
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    padding: 10px 0; /* Área táctil extra para que sea fácil pulsar con el dedo */
+}
+
+.btn-back i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover {
+    color: var(--primary-red);
+}
+
+.btn-back:hover i {
+    transform: translateX(-5px);
+}
+
+/* --- RESPONSIVE PARA EL BOTÓN --- */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .back-btn-wrapper {
+        margin-bottom: 30px;
+    }
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+    .back-btn-wrapper {
+        margin-bottom: 20px;
+    }
+    
+    .btn-back {
+        font-size: 0.85rem; /* Letra un poco más pequeña para equilibrar */
+        gap: 6px; /* Menos espacio entre la flecha y el texto */
+    }
+    
+    .btn-back i {
+        font-size: 0.95rem; /* Flecha proporcional al nuevo tamaño */
+    }
+}
+
+/* =========================================
    6. RESPONSIVE DESIGN (Tablets y Móviles)
 ========================================= */
 
@@ -614,6 +839,13 @@ ul {
 
 @media (max-width: 768px) {
   /* Textos más pequeños */
+
+/* Ajustes Artículo Móvil */
+  .article-title { font-size: 2.2rem; }
+  .article-hero-image img { height: 300px; border-radius: 10px; }
+  .article-body { font-size: 1.05rem; }
+  .article-body blockquote { font-size: 1.2rem; padding: 20px; }
+
   .page-title {
     font-size: 2.2rem;
   }

@@ -424,17 +424,6 @@
     z-index: 10000;
   }
 
-  /* El JS añade esta clase para mostrar el menú */
-  .nav-links.active {
-    left: 0;
-  }
-  .nav-links li {
-    margin: 25px 0;
-  }
-  .nav-links a {
-    font-size: 1.8rem;
-    font-weight: 700;
-  }
 
   /* Animación de la hamburguesa a "X" */
   .hamburger.active .bar:nth-child(1) {
